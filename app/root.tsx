@@ -5,14 +5,13 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import styles from "~/styles/main.css"
+import styles from "~/styles/main.css";
 import type { LinksFunction } from "@remix-run/node";
+import MainNavigation from "./components/MainNavigation";
 
 import "./tailwind.css";
 
-export const links: LinksFunction = () => [
-  {rel: 'stylesheet', href: styles}
-];
+export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -24,6 +23,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        <header>
+          <MainNavigation />
+        </header>
         {children}
         <ScrollRestoration />
         <Scripts />
