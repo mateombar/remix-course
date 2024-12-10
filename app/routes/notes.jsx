@@ -36,7 +36,9 @@ export async function action(data) {
   const existingNotes = await getStoredNotes();
   noteData.id = new Date().toISOString();
   const updatedNotes = existingNotes.concat(noteData);
-  await storeNotes(updatedNotes);
+  await new Promise((r,) => setTimeout(() => r()), 300000)
+
+  // await storeNotes(updatedNotes);
 
   // You normally return a redirect function here (Remeber this is server side)
   return redirect("/notes");
